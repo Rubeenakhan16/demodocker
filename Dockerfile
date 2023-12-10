@@ -1,7 +1,7 @@
-# Use the official Nginx base image
+# Use the official Nginx image as a base image
 FROM nginx:latest
 
-# Copy custom configuration file to the container
+# Copy the nginx.conf file to the /etc/nginx/ directory in the image
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy static content to the default Nginx web root directory
