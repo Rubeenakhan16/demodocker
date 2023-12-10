@@ -1,12 +1,16 @@
-# Use an official Tomcat runtime as a parent image
-FROM tomcat:8.0.18-jre8
+# Use an official Ubuntu image as a parent image
+FROM ubuntu:latest
 
-# Copy the local maven-web-application.war file to the webapps directory in the container
-COPY target/maven-web-application.war /usr/local/tomcat/webapps/
+# Set the working directory inside the container
+WORKDIR /app
 
-# Expose port 8080 to the outside world
-EXPOSE 8080
+# Copy a file from the host system to the container at the specified directory
+COPY ./demo.txt .
 
-# Start Tomcat when the container launches
-CMD ["catalina.sh", "run"]
+# Expose a port to the outside world
+EXPOSE 80
+
+# Run a command when the container starts
+CMD ["echo", "Hello, this is a demo!"]
+
 
